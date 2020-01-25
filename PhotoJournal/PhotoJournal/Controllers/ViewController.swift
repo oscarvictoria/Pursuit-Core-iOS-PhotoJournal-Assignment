@@ -66,15 +66,7 @@ class ViewController: UIViewController {
     }
     
     
-//    private func showImageController(isCameraSelected: Bool) {
-//        // source type default will be .photosLibrary
-//        imagePickerController.sourceType = .photoLibrary
-//
-//        if isCameraSelected {
-//            imagePickerController.sourceType = .camera
-//        }
-//        present(imagePickerController, animated: true)
-//    }
+
 
     
 }
