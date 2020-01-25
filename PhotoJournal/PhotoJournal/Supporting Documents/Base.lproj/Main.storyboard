@@ -102,39 +102,85 @@
             <objects>
                 <viewController storyboardIdentifier="down" id="Kst-Hd-cKA" customClass="PostViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n2L-pZ-xWi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-RX-Aba">
-                                <rect key="frame" x="0.0" y="87" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-RX-Aba">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="BYs-ob-ONx">
                                         <connections>
                                             <segue destination="3NU-2k-sjg" kind="unwind" unwindAction="newEventWithSegue:" id="TAh-wf-bKn"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="115" style="plain" systemItem="fixedSpace" id="Gsq-Lf-vwQ"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="i4F-ad-gEd"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="wM7-0h-xXQ"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ftF-0B-dow"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="jD6-8W-lNO"/>
-                                    <barButtonItem title="Save" id="UxA-GM-iVa"/>
+                                    <barButtonItem width="307" style="plain" systemItem="fixedSpace" id="51a-El-Eda"/>
+                                    <barButtonItem title="Save" width="243" id="LVp-YD-neg"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zea-HW-JGF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="632"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" rowHeight="210" id="lqx-Bq-cUo" customClass="PhotoCell" customModule="PhotoJournal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="210"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lqx-Bq-cUo" id="i9Q-mg-9EN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-8V-xjM">
+                                                    <rect key="frame" x="0.0" y="1" width="414" height="208"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="W4c-8V-xjM" secondAttribute="bottom" id="JIf-rO-oqJ"/>
+                                                <constraint firstItem="W4c-8V-xjM" firstAttribute="leading" secondItem="i9Q-mg-9EN" secondAttribute="leading" id="R5h-BB-Xcm"/>
+                                                <constraint firstAttribute="trailing" secondItem="W4c-8V-xjM" secondAttribute="trailing" id="T6k-gk-ExR"/>
+                                                <constraint firstItem="W4c-8V-xjM" firstAttribute="top" secondItem="i9Q-mg-9EN" secondAttribute="top" id="faC-dK-xZi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="W4c-8V-xjM" id="EYR-n5-3q4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNg-xB-I8d">
+                                <rect key="frame" x="0.0" y="676" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Photos" id="oUL-QA-i3y"/>
+                                    <barButtonItem width="269" style="plain" systemItem="fixedSpace" id="ztM-dW-F2L"/>
+                                    <barButtonItem title="Camera" id="aM4-Dj-yKs"/>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zea-HW-JGF" firstAttribute="top" secondItem="NfJ-RX-Aba" secondAttribute="bottom" id="75J-I8-yhW"/>
+                            <constraint firstItem="zea-HW-JGF" firstAttribute="trailing" secondItem="Be6-39-WUr" secondAttribute="trailing" id="DI9-Mk-fAo"/>
+                            <constraint firstItem="NfJ-RX-Aba" firstAttribute="leading" secondItem="Be6-39-WUr" secondAttribute="leading" id="VOx-Ei-DQS"/>
+                            <constraint firstItem="zea-HW-JGF" firstAttribute="leading" secondItem="Be6-39-WUr" secondAttribute="leading" id="XlH-uq-dqs"/>
+                            <constraint firstItem="sNg-xB-I8d" firstAttribute="trailing" secondItem="Be6-39-WUr" secondAttribute="trailing" id="a6d-pB-pJD"/>
+                            <constraint firstItem="sNg-xB-I8d" firstAttribute="leading" secondItem="Be6-39-WUr" secondAttribute="leading" id="ace-bB-TgY"/>
+                            <constraint firstItem="sNg-xB-I8d" firstAttribute="bottom" secondItem="Be6-39-WUr" secondAttribute="bottom" id="c3b-Nf-UAT"/>
+                            <constraint firstItem="sNg-xB-I8d" firstAttribute="top" secondItem="zea-HW-JGF" secondAttribute="bottom" id="eMD-a2-xdy"/>
+                            <constraint firstItem="NfJ-RX-Aba" firstAttribute="trailing" secondItem="Be6-39-WUr" secondAttribute="trailing" id="uxv-rM-Y57"/>
+                            <constraint firstItem="NfJ-RX-Aba" firstAttribute="top" secondItem="Be6-39-WUr" secondAttribute="top" id="vp8-6h-c3Q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Be6-39-WUr"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit" id="oHz-LL-4tQ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="zea-HW-JGF" id="vzi-Hd-CLB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZY-3B-wuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3NU-2k-sjg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="899"/>
+            <point key="canvasLocation" x="2095.6521739130435" y="898.66071428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Owf-2g-iEm">
@@ -183,6 +229,6 @@
         <image name="plus" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w1z-F9-fkk"/>
+        <segue reference="6xV-Ox-u3P"/>
     </inferredMetricsTieBreakers>
 </document>

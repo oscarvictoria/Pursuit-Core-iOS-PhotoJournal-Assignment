@@ -15,6 +15,7 @@ class PhotoCell: UITableViewCell {
     override func layoutSubviews() {
       super.layoutSubviews()
       layer.cornerRadius = 20.0
+        backgroundColor = .systemIndigo
       
     }
 
