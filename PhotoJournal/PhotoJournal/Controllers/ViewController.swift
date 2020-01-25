@@ -17,16 +17,18 @@ class ViewController: UIViewController {
     
     var photoObjects = [ImageObject]()
     
-    private var selectedImage: UIImage? {
-          didSet {
-              appendNewPhotoToCollection()
-          }
-      }
+    var someImageObject: ImageObject?
     
+
+    var selectedImage: UIImage?
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        loadImageObjects()
     }
     
     private func loadImageObjects() {
@@ -37,15 +39,15 @@ class ViewController: UIViewController {
          }
      }
     
-    
-    
     @IBAction func newEvent(segue: UIStoryboardSegue) {
         guard let photo = segue.source as? PostViewController else {
             fatalError("failed to access CreateEventController")
         }
-//        let photos = photoObjects[indexPath.row]
-       
-        print("Can pass data?")
+        
+        photoObjects = photo.imageObjects
+        
+    
+//        selectedImage = photo.photoLibraryImage.image
     }
     
     @IBAction func settings(_ sender: UIButton) {
@@ -65,50 +67,7 @@ class ViewController: UIViewController {
         present(alertAction, animated: true)
     }
     
-    func appendNewPhotoToCollection() {
-        guard let image = selectedImage else {
-            print("image is nil")
-            return
-        }
-        
-        print("original image size is \(image.size)")
-        
-        // the size for resizing of the image
-//        let size = UIScreen.main.bounds.size
-//        // we will maintain the aspect ratio of the image
-//        let rec = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
-        
-        // resize image
-//        let resizeImage = image.resizeImage(to: rec.size.width, height: rec.size.height)
-        
-//        print("new image size is \(resizeImage.size)")
-        guard let resizedImageData = image.jpegData(compressionQuality: 1.0) else {
-            return
-        }
-        
-        
-        // create an image object using the image selected
-        let imageObject = ImageObject(imageData: resizedImageData, date: Date())
-        
-        // insert new imageObject into imageObjects
-        photoObjects.insert(imageObject, at: 0)
-        
-        // create an indexPath for insertion into collection view
-        
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        // insert new cell into collection view
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        
-        // Persist imageObject to documents directory
-        do {
-            try dataPersistance.create(item: imageObject)
-        } catch {
-            print("saving error")
-        }
-    }
-    
-    
+
     
 }
 
@@ -120,17 +79,14 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoCell else {
             fatalError("error")
         }
+        cell.photoImageView.image = selectedImage
         return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        return 450
     }
 }
 

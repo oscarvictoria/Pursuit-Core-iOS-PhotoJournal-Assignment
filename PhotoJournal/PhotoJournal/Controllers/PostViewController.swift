@@ -16,7 +16,7 @@ class PostViewController: UIViewController {
     
     var imageObjects = [ImageObject]()
     var imagePickerController = UIImagePickerController()
-    let dataPersistance = PersistenceHelper(filename: "savedImages.plist")
+    let dataPersistance = PersistenceHelper(filename: "images.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
