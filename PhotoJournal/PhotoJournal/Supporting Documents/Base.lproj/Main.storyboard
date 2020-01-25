@@ -10,13 +10,13 @@
         <!--Photos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yus-Xy-zBr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoCell" rowHeight="378" id="53e-sB-K6x" customClass="PhotoCell" customModule="PhotoJournal" customModuleProvider="target">
@@ -64,7 +64,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVS-of-WTf">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Jly-kT-QFz"/>
                                     <barButtonItem title="Item" image="plus" catalog="system" id="QAf-zi-rA4">
@@ -117,7 +117,8 @@
                                     <barButtonItem width="307" style="plain" systemItem="fixedSpace" id="51a-El-Eda"/>
                                     <barButtonItem title="Save" width="243" id="LVp-YD-neg">
                                         <connections>
-                                            <action selector="save:" destination="Kst-Hd-cKA" id="o27-Jl-Bsy"/>
+                                            <action selector="save:" destination="Kst-Hd-cKA" id="NJa-96-glR"/>
+                                            <segue destination="3NU-2k-sjg" kind="unwind" unwindAction="newEventWithSegue:" id="3iD-Gh-4XO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

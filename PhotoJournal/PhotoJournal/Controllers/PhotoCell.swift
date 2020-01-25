@@ -14,10 +14,9 @@ class PhotoCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //layer.cornerRadius = 20.0
     }
     
-    
+
     func configuredCell(imageObject: ImageObject) {
         guard let image = UIImage(data: imageObject.imageData) else {
             return
